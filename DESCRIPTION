@@ -13,7 +13,7 @@ Description: In ggplot2's documentation, the roseplot is derived by taking a
     This is not a novel idea, as the coxcomb and Florence Nightingale's work
     predates this work (understandinguncertainty.org/coxcombs).
 Depends:
-    R (>= 3.0.1)
+    R (>= 2.14)
 License: GPL-2
 Imports:
     ggplot2,
