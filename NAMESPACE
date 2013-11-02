@@ -1,2 +1,5 @@
 export(area2radius)
 export(barchart)
+import(RColorBrewer)
+import(ggplot2)
+import(scales)

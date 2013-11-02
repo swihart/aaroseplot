@@ -6,6 +6,9 @@
 #' @param pos  passed to geom_bar() as the "position" value:  currently supported are "dodge" and "stack"; to be impemented: "superimposed".
 #' @param width passed to geom_bar() as the "width" value: determines the spacing between bars/clusters of bars between the regions.
 #' @param start Passed to coord_polar() as the "start" value -- rotates the circle so that the East label meets the right side of the page.
+#' @import ggplot2
+#' @import RColorBrewer
+#' @import scales
 #' @export
 #' @examples
 #' data(prob.cond.region)

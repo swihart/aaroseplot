@@ -22,6 +22,5 @@ Imports:
 Collate:
     'aaroseplot-package.r'
     'area2radius.R'
-    'barchart.R'
     'multiplot.R'
     'plots.R'
