@@ -2,6 +2,7 @@
 #'
 #' \code{A suite of functions to demonstrate why the area in roseplots need adjusting}
 #'
+#' @name plots
 #' @param data A dataframe that is three columns wide and has the column names "prob", "cond", and "region":  "prob" is the probability of being in the "region" and "cond" is a condition or grouping variable.  See prob.cond.region in the examples.
 #' @param pos  passed to geom_bar() as the "position" value:  currently supported are "dodge" and "stack"; to be impemented: "superimposed".
 #' @param width passed to geom_bar() as the "width" value: determines the spacing between bars/clusters of bars between the regions.

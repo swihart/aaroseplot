@@ -1,6 +1,6 @@
-\name{barchart}
+\name{plots}
 \alias{aaroseplot}
-\alias{barchart}
+\alias{plots}
 \alias{roseplot}
 \title{Plots:  Barcharts, Roseplots, and Area Adjusted Roseplots via ggplot2}
 \usage{

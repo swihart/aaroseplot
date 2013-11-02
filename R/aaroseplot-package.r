@@ -1,6 +1,6 @@
-#' aaroseplot
+#' aaroseplot: A package containing barchart, roseplot, and area adjusted roseplot wrappers of ggplot2 functions
 #'
-#'   aaroseplot is simply some wrappers for a specific kind of data that is well displayed as a roseplot.
+#'  aaroseplot is simply some wrappers for a specific kind of data that is well displayed as a roseplot.
 #'  For an application I had, cells could grow outward from a center into a 2-D region.  I modeled
 #' the probability of growth into a region and wanted to display those probabilities as a roseplot where the area
 #' was the probability, not the radius.  See the examples.

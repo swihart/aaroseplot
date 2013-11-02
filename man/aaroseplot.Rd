@@ -2,7 +2,7 @@
 \name{aaroseplot}
 \alias{aaroseplot}
 \alias{aaroseplot-package}
-\title{aaroseplot}
+\title{aaroseplot: A package containing barchart, roseplot, and area adjusted roseplot wrappers of ggplot2 functions}
 \description{
   aaroseplot is simply some wrappers for a specific kind of
   data that is well displayed as a roseplot.  For an
