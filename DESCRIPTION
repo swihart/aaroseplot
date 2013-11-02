@@ -1,0 +1,27 @@
+Package: aaroseplot
+Title: Area Adjusted Roseplots via ggplot2
+Version: 0.1
+Author: Bruce Swihart <bruce.swihart@gmail.com>
+Maintainer: Bruce Swihart <bruce.swihart@gmail.com>
+Description: In ggplot2's documentation, the roseplot is derived by taking a
+    barchart and mapping it to polar coordinates.  In a bar chart, the height
+    of the bar equals the area if the width is 1.  In polar coordinates, the
+    resulting sector (wedge, pie slice, etc) has a radius equal to the bar of
+    the barchart, which results in the area being squarely proportional to the
+    radius.  In area adjusted roseplots, the area of the wedge is the value we
+    want to portray, so we back calculate the radius that gives that area.
+    This is not a novel idea, as the coxcomb and Florence Nightingale's work
+    predates this work (understandinguncertainty.org/coxcombs).
+Depends:
+    R (>= 3.0.1)
+License: GPL-2
+Imports:
+    ggplot2,
+    RColorBrewer,
+    scales
+Collate:
+    'aaroseplot-package.r'
+    'area2radius.R'
+    'barchart.R'
+    'multiplot.R'
+    'plots.R'
