@@ -1,5 +1,7 @@
+export(aaroseplot)
 export(area2radius)
 export(barchart)
+export(roseplot)
 import(RColorBrewer)
 import(ggplot2)
 import(scales)

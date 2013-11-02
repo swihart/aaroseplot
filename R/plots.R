@@ -9,7 +9,9 @@
 #' @import ggplot2
 #' @import RColorBrewer
 #' @import scales
-#' @export
+#' @export barchart
+#' @export roseplot
+#' @export aaroseplot
 #' @examples
 #' data(prob.cond.region)
 #' b <-   barchart(prob.cond.region, "dodge", .50)       + ggtitle("Barchart")
