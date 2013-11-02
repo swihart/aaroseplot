@@ -1,13 +1,24 @@
-# Multiple plot function
-# http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-# - cols:   Number of columns in layout
-# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
-#
+#' Multiple plot function
+#'
+#' \code{see http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/}
+#'ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
 # If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
 # then plot 1 will go in the upper left, 2 will go in the upper right, and
 # 3 will go all the way across the bottom.
-#
+#' @param cols:   Number of columns in layout
+#' @param layout: A matrix specifying the layout. If present, 'cols' is ignored.
+#' @import ggplot2
+#' @export
+#' @examples
+#' data(prob.cond.region)
+#' b <-   barchart(prob.cond.region, "dodge", .50)       + ggtitle("Barchart")
+#' r <-   roseplot(prob.cond.region, "dodge", .50, pi/3) + ggtitle("Roseplot mapped from Barchart")
+#' a <- aaroseplot(prob.cond.region, "dodge", .50, pi/3) + ggtitle("Area Adjusted Roseplot")
+#' multiplot(b,r,a, cols=3)
+#' b <-   barchart(prob.cond.region, "stack", .95)       + ggtitle("Barchart")
+#' r <-   roseplot(prob.cond.region, "stack", .95, pi/3) + ggtitle("Roseplot mapped from Barchart")
+#' a <- aaroseplot(prob.cond.region, "stack", .95, pi/3) + ggtitle("Area Adjusted Roseplot")
+#' multiplot(b,r,a, cols=3)
 multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   require(grid)
   # Make a list from the ... arguments and plotlist
