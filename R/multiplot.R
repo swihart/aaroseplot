@@ -37,7 +37,7 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   } else {
     # Set up the page
     grid.newpage()
-    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout), 2)))##2 is for widths of columns
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout), 1)))##1 is for widths of columns
     # Make each plot, in the correct location
     for (i in 1:numPlots) {
       # Get the i,j matrix positions of the regions that contain this subplot
