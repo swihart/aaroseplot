@@ -4,11 +4,14 @@
 \alias{roseplot}
 \title{Plots:  Barcharts, Roseplots, and Area Adjusted Roseplots via ggplot2}
 \usage{
-  barchart(data = d, pos = p, width = w)
+  barchart(data = d, pos = p, width = 0.8, alpha = 0.6,
+    border.col = "black")
 
-  roseplot(data = d, pos = p, width = w, start = s)
+  roseplot(data = d, pos = p, width = 0.8, alpha = 0.6,
+    border.col = "black", start = pi/3)
 
-  aaroseplot(data = d, pos = p, width = w, start = s)
+  aaroseplot(data = d, pos = p, width = 0.8, alpha = 0.6,
+    border.col = "black", start = pi/3)
 }
 \arguments{
   \item{data}{A dataframe that is three columns wide and
@@ -18,16 +21,24 @@
   in the examples.}
 
   \item{pos}{passed to geom_bar() as the "position" value:
-  currently supported are "dodge" and "stack"; to be
-  impemented: "superimposed".}
+  currently supported are "dodge" and "stack"; "super"
+  superimposes layers up to 10 levels of "cond".}
 
   \item{width}{passed to geom_bar() as the "width" value:
   determines the spacing between bars/clusters of bars
-  between the regions.}
+  between the regions. Default is 0.80}
+
+  \item{alpha}{Passed to geom_bar() as the "alpha" value --
+  default is 0.6; 1 is opaque and 0 is transparent}
+
+  \item{border.col}{Passed to geom_bar() as the "color"
+  value -- "black" is default and NA is transparent for
+  border color control}
 
   \item{start}{Passed to coord_polar() as the "start" value
-  -- rotates the circle so that the East label meets the
-  right side of the page.}
+  -- default \code{pi/3} rotates the circle so that the
+  East (EE) label meets the right side of the page (not
+  applicable to \code{barchart()})}
 }
 \description{
   \code{A suite of functions to demonstrate why the area in
@@ -35,13 +46,18 @@
 }
 \examples{
 data(prob.cond.region)
-b <-   barchart(prob.cond.region, "dodge", .50)       + ggtitle("Barchart")
-r <-   roseplot(prob.cond.region, "dodge", .50, pi/3) + ggtitle("Roseplot mapped from Barchart")  + scale_fill_discrete(guide=FALSE)
-a <- aaroseplot(prob.cond.region, "dodge", .50, pi/3) + ggtitle("Area Adjusted Roseplot")         + scale_fill_discrete(guide=FALSE)
-multiplot(b,r,a, cols=2, rows=2)
-b <-   barchart(prob.cond.region, "stack", .95)       + ggtitle("Barchart")
-r <-   roseplot(prob.cond.region, "stack", .95, pi/3) + ggtitle("Roseplot mapped from Barchart")  + scale_fill_discrete(guide=FALSE)
-a <- aaroseplot(prob.cond.region, "stack", .95, pi/3) + ggtitle("Area Adjusted Roseplot")         + scale_fill_discrete(guide=FALSE)
-multiplot(b,r,a, cols=2, rows=2)
+be <-   barchart(prob.cond.region, "dodge") + ggtitle("Barchart")
+re <-   roseplot(prob.cond.region, "dodge") + ggtitle("Roseplot mapped from Barchart")  + scale_fill_discrete(guide=FALSE)
+ae <- aaroseplot(prob.cond.region, "dodge") + ggtitle("Area Adjusted Roseplot")         + scale_fill_discrete(guide=FALSE)
+multiplot(be,re,ae, cols=2, rows=2)
+bk <-   barchart(prob.cond.region, "stack") + ggtitle("Barchart")
+rk <-   roseplot(prob.cond.region, "stack") + ggtitle("Roseplot mapped from Barchart")  + scale_fill_discrete(guide=FALSE)
+ak <- aaroseplot(prob.cond.region, "stack") + ggtitle("Area Adjusted Roseplot")         + scale_fill_discrete(guide=FALSE)
+multiplot(bk,rk,ak, cols=2, rows=2)
+br <-   barchart(prob.cond.region, "super") + ggtitle("Barchart")
+rr <-   roseplot(prob.cond.region, "super") + ggtitle("Roseplot mapped from Barchart")  + scale_fill_discrete(guide=FALSE)
+ar <- aaroseplot(prob.cond.region, "super") + ggtitle("Area Adjusted Roseplot")         + scale_fill_discrete(guide=FALSE)
+multiplot(br,rr,ar, cols=2, rows=2)
+multiplot(be,re,ae,bk,rk,ak,br,rr,ar, cols=3, rows=3)
 }
 
