@@ -10,11 +10,11 @@
 #' @examples
 #' data(prob.cond.region)
 #' b <-   barchart(prob.cond.region, "dodge", .50)       + ggtitle("Barchart")
-#' r <-   roseplot(prob.cond.region, "dodge", .50, pi/3) + ggtitle("Roseplot mapped from Barchart")
-#' a <- aaroseplot(prob.cond.region, "dodge", .50, pi/3) + ggtitle("Area Adjusted Roseplot")
-#' multiplot(b,r,a, cols=3)
+#' r <-   roseplot(prob.cond.region, "dodge", .50, pi/3) + ggtitle("Roseplot mapped from Barchart")  + scale_fill_discrete(guide=FALSE)
+#' a <- aaroseplot(prob.cond.region, "dodge", .50, pi/3) + ggtitle("Area Adjusted Roseplot")         + scale_fill_discrete(guide=FALSE)
+#' multiplot(b,r,a, cols=3, rows=2)
 #' b <-   barchart(prob.cond.region, "stack", .95)       + ggtitle("Barchart")
-#' r <-   roseplot(prob.cond.region, "stack", .95, pi/3) + ggtitle("Roseplot mapped from Barchart")
-#' a <- aaroseplot(prob.cond.region, "stack", .95, pi/3) + ggtitle("Area Adjusted Roseplot")
-#' multiplot(b,r,a, cols=3)
+#' r <-   roseplot(prob.cond.region, "stack", .95, pi/3) + ggtitle("Roseplot mapped from Barchart")  + scale_fill_discrete(guide=FALSE)
+#' a <- aaroseplot(prob.cond.region, "stack", .95, pi/3) + ggtitle("Area Adjusted Roseplot")         + scale_fill_discrete(guide=FALSE)
+#' multiplot(b,r,a, cols=2, rows=2)
 NULL
