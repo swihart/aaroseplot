@@ -127,7 +127,7 @@ aaroseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black",
 	}else{print("double check graphical results for pos=stack")
 		d.temp <- data
 		angle <- 360 / length(unique(d.temp$region))
-		groups <- length(unique(d.temp$cond))
+		groups <- 1
 		d.temp$radius <- area2radius.stack(d.temp, width, angle)
 			p.return <- ggplot(d.temp, aes(x=factor(region), y=radius, fill=factor(cond)))+
 				geom_bar(width=width, stat="identity", position=pos, alpha=alpha, color=border.col) +

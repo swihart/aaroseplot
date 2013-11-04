@@ -16,7 +16,7 @@ area2radius.stack <- function(data, w.g=width.global, a=angle){
 		extract <-which(dt$cond==levels(factor(dt$cond))[1] & dt$region==levels(factor(dt$region))[R])
 		dt$radius[extract] <- sqrt((2*dt$area[extract])/(sub.angle*pi/180))
 		previous.radius <- dt$radius[extract]
-		for(L in 2:length(levels(factor(dt$cond))[1])){
+		for(L in 2:length(levels(factor(dt$cond)))){
 			extract <-which(dt$cond==levels(factor(dt$cond))[L] & dt$region==levels(factor(dt$region))[R])
 			dt$radius[extract] <- sqrt((2*dt$area[extract])/(sub.angle*pi/180) + previous.radius^2) - previous.radius
                         previous.radius <- previous.radius + dt$radius[extract]
