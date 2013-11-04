@@ -1,13 +1,16 @@
 # aaroseplot
 
+The prefix "aa" stands for "area adjusted".
+
 aaroseplot is an R package/repo providing an attempt to assuage the "major preceptual problems" listed in
-the note of ggplot2:coord_polar [inline link](http://docs.ggplot2.org/0.9.3.1/coord_polar.html):
+the note of [ggplot2:coord_polar](http://docs.ggplot2.org/0.9.3.1/coord_polar.html):
 
     NOTE: Use these plots with caution - polar coordinates has
     major perceptual problems.  The main point of these examples is
     to demonstrate how these common plots can be described in the
     grammar.  Use with EXTREME caution.
 
+When a barchart is converted to a roseplot, the height of the bar becomes the radius of the "wedge".  This is problematic perceptually because the relation between the shaded areas of barchart does not persist to a roseplot: if two bars have equal width but the one height is 4x as tall, then the fill-area is 4x as much as well.  If a wedge has 4x the radius, its area is 16x as much the area.  The trick is to have the height of the bar in the bar chart become the area (not the radius) of the roseplot -- an area adjusted roseplot.
 
 ## Can I just see what you're talking about?
 
