@@ -8,6 +8,7 @@
 #' @param width passed to geom_bar() as the "width" value: determines the spacing between bars/clusters of bars between the regions. Default is 0.80
 #' @param alpha Passed to geom_bar() as the "alpha" value -- default is 0.6; 1 is opaque and 0 is transparent
 #' @param border.col Passed to geom_bar() as the "color" value -- "black" is default and NA is transparent for border color control
+#' @param rad.max [0, rad.max] is the range of the radius-scale.  Default is NULL
 #' @param start Passed to coord_polar() as the "start" value -- default \code{pi/3} rotates the circle so that the East (EE) label meets the right side of the page (not applicable to \code{barchart()})
 #' @import ggplot2
 #' @import RColorBrewer
@@ -17,21 +18,22 @@
 #' @export aaroseplot
 #' @examples
 #' data(prob.cond.region)
-#' be <-   barchart(prob.cond.region, "dodge") + ggtitle("Barchart (dodge)")
-#' re <-   roseplot(prob.cond.region, "dodge") + ggtitle("Roseplot (dodge)")  + scale_fill_discrete(guide=FALSE)
-#' ae <- aaroseplot(prob.cond.region, "dodge") + ggtitle("Area Adjusted Roseplot (dodge)")         + scale_fill_discrete(guide=FALSE)
+#' be <-   barchart(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Barchart (dodge)")
+#' re <-   roseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Roseplot (dodge)")               + scale_fill_discrete(guide=FALSE)
+#' ae <- aaroseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (dodge)") + scale_fill_discrete(guide=FALSE)
 #' multiplot(be,re,ae, cols=2, rows=2)
-#' bk <-   barchart(prob.cond.region, "stack") + ggtitle("Barchart (stack)")
-#' rk <-   roseplot(prob.cond.region, "stack") + ggtitle("Roseplot (stack)")  + scale_fill_discrete(guide=FALSE)
-#' ak <- aaroseplot(prob.cond.region, "stack") + ggtitle("Area Adjusted Roseplot (stack)")         + scale_fill_discrete(guide=FALSE)
+#' bk <-   barchart(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Barchart (stack)")
+#' rk <-   roseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Roseplot (stack)")               + scale_fill_discrete(guide=FALSE)
+#' ak <- aaroseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (stack)") + scale_fill_discrete(guide=FALSE)
 #' multiplot(bk,rk,ak, cols=2, rows=2)
-#' br <-   barchart(prob.cond.region, "super") + ggtitle("Barchart (super)")
-#' rr <-   roseplot(prob.cond.region, "super") + ggtitle("Roseplot (super)")  + scale_fill_discrete(guide=FALSE)
-#' ar <- aaroseplot(prob.cond.region, "super") + ggtitle("Area Adjusted Roseplot (super)")         + scale_fill_discrete(guide=FALSE)
+#' br <-   barchart(prob.cond.region, "super", rad.max=0.5) + ggtitle("Barchart (super)")
+#' rr <-   roseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Roseplot (super)")               + scale_fill_discrete(guide=FALSE)
+#' ar <- aaroseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (super)") + scale_fill_discrete(guide=FALSE)
 #' multiplot(br,rr,ar, cols=2, rows=2)
 #' multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
 #' @rdname plots
-barchart <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black"){
+barchart <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black", rad.max=NULL){
+        ifelse(is.null(rad.max), rad.max <- max(data$prob)*1.05, rad.max)
 	if(pos=="super"){
 		## really bad coding; hard coded at 10 levels of cond.  If there are fewer, just doesn't add anything...
 		p.return <-
@@ -45,15 +47,22 @@ barchart <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black"){
 			geom_bar(data=subset(data, cond==levels(factor(cond))[7]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
 			geom_bar(data=subset(data, cond==levels(factor(cond))[8]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
 			geom_bar(data=subset(data, cond==levels(factor(cond))[9]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[10]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col)
+			geom_bar(data=subset(data, cond==levels(factor(cond))[10]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+					scale_y_continuous(labels = seq(0,1,.1),
+							   breaks=seq(0,1,.1),
+							   limits=c(0,rad.max))
 	}else{
 		p.return <- ggplot(data, aes(x=factor(region), y=prob, fill=factor(cond)))+
-			geom_bar(width=width, stat="identity", position=pos, alpha=alpha, color=border.col)
+			geom_bar(width=width, stat="identity", position=pos, alpha=alpha, color=border.col) +
+					scale_y_continuous(labels = seq(0,1,.1),
+							   breaks=seq(0,1,.1),
+							   limits=c(0,rad.max))
 	}
 	p.return
 }
 #' @rdname plots
-roseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black", start=pi/3){
+roseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black", rad.max=NULL, start=pi/3){
+        ifelse(is.null(rad.max), rad.max <- max(data$prob)*1.05, rad.max)
 	if(pos=="super"){
 		## really bad coding; hard coded at 10 levels of cond.  If there are fewer, just doesn't add anything...
 		p.return <- ggplot(subset(data, cond==levels(factor(cond))[1]), aes(x=factor(region), y=prob, fill=factor(cond)))+
@@ -76,16 +85,23 @@ roseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black", s
 			geom_bar(data=subset(data, cond==levels(factor(cond))[9]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
 			geom_bar(data=subset(data, cond==levels(factor(cond))[10]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-				coord_polar(start=start)
+				coord_polar(start=start)  +
+					scale_y_continuous(labels = seq(0,1,.1),
+							   breaks=seq(0,1,.1),
+							   limits=c(0,rad.max))
 	}else{
 		p.return <- ggplot(data, aes(x=factor(region), y=prob, fill=factor(cond)))+
 			geom_bar(width=width, stat="identity", position=pos, alpha=alpha, color=border.col) +
-				coord_polar(start=start)
+				coord_polar(start=start) +
+					scale_y_continuous(labels = seq(0,1,.1),
+							   breaks=seq(0,1,.1),
+							   limits=c(0,rad.max))
 	}
 	p.return
 }
 #' @rdname plots
-aaroseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black", start=pi/3){
+aaroseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black", rad.max=NULL, start=pi/3){
+        ifelse(is.null(rad.max), rad.max <- max(data$prob)*1.05, rad.max)
 	## dodge and superimpose, because they start from center, require same radius2area transformation:
 	if(pos %in% c("dodge", "super")){
 		d.temp <- data
@@ -115,13 +131,17 @@ aaroseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black",
 				coord_polar(start=start) +
 			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[10]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			scale_y_continuous(labels = seq(0,1,.1), breaks=area2radius(seq(0,1,.1), width, angle, groups))+
+			scale_y_continuous(labels = seq(0,1,.1),
+					   breaks=area2radius(seq(0,1,.1), width, angle, groups),
+					   limits=c(0,area2radius(rad.max, width,angle,groups)))+
 				ylab("prob")
 		}else{
 			p.return <- ggplot(d.temp, aes(x=factor(region), y=radius, fill=factor(cond)))+
 				geom_bar(width=width, stat="identity", position=pos, alpha=alpha, color=border.col) +
 					coord_polar(start=start) +
-						scale_y_continuous(labels = seq(0,1,.1), breaks=area2radius(seq(0,1,.1), width, angle, groups))+
+						scale_y_continuous(labels = seq(0,1,.1),
+								   breaks=area2radius(seq(0,1,.1), width, angle, groups),
+								   limits=c(0,area2radius(rad.max, width,angle,groups)))+
 							ylab("prob")
 		}
 	}else{print("double check graphical results for pos=stack")
@@ -132,7 +152,9 @@ aaroseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black",
 			p.return <- ggplot(d.temp, aes(x=factor(region), y=radius, fill=factor(cond)))+
 				geom_bar(width=width, stat="identity", position=pos, alpha=alpha, color=border.col) +
 					coord_polar(start=start) +
-						scale_y_continuous(labels = seq(0,1,.1), breaks=area2radius(seq(0,1,.1), width, angle, groups))+
+						scale_y_continuous(labels = seq(0,1,.1),
+								   breaks=area2radius(seq(0,1,.1), width, angle, groups),
+								   limits=c(0,area2radius(rad.max, width,angle,groups)))+
 							ylab("prob")
 		}
 	p.return
