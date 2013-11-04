@@ -1,7 +1,7 @@
 # aaroseplot
 
 aaroseplot is an R package/repo providing an attempt to assuage the "major preceptual problems" listed in
-the note of ggplot2:coord_polar (http://docs.ggplot2.org/0.9.3.1/coord_polar.html):
+the note of ggplot2:coord_polar [inline link](http://docs.ggplot2.org/0.9.3.1/coord_polar.html):
 
     NOTE: Use these plots with caution - polar coordinates has
     major perceptual problems.  The main point of these examples is
