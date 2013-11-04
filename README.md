@@ -44,7 +44,8 @@ Run in R:
     the bar to calculate the area - email me if you know how to get
     the width.
 
-    Q:  Isn't making canned wrappers of ggplot2 functions a bastardization of the whole idea of grammar of graphics?
+    Q: Isn't making canned wrappers of ggplot2 functions a
+    bastardization of the whole idea of grammar of graphics?
     A:  Geez -- listen, I'm a purist too and a big fan of ggplot2 as
     well.  I just wanted to make my first github repo after a very
     specific project I had involving adjusting the area of some
