@@ -40,8 +40,16 @@ Run in R:
 ## Frequently Asked Questions:
 
     Q:  Why not have the _area_ of the bar become the area of the wedge.
-    A:  Nice idea - I would first need to get my hands on the width of the bar to calculate the area - email me if you know how to get the width.
+    A:  Nice idea - I would first need to get my hands on the width of
+    the bar to calculate the area - email me if you know how to get
+    the width.
 
     Q:  Isn't making canned wrappers of ggplot2 functions a bastardization of the whole idea of grammar of graphics?
-    A:  Geez -- listen, I'm a purist too and a big fan of ggplot2 as well.  I just wanted to make my first github repo after a very specific project I had involving adjusting the area of some roseplots.  If you email me the pros/cons of what I'm doing (if there are even any pros :-) I'd be happy to post them with credit to you if you so wish.  We're all here to learn, to share, to source openly.
+    A:  Geez -- listen, I'm a purist too and a big fan of ggplot2 as
+    well.  I just wanted to make my first github repo after a very
+    specific project I had involving adjusting the area of some
+    roseplots.  If you email me the pros/cons of what I'm doing (if
+    there are even any pros :-) I'd be happy to post them with credit
+    to you if you so wish.  We're all here to learn, to share, to
+    source openly.
 
