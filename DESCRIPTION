@@ -25,3 +25,4 @@ Collate:
     'area2radius.R'
     'multiplot.R'
     'plots.R'
+    'area2radius.stack.R'

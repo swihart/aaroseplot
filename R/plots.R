@@ -124,11 +124,11 @@ aaroseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black",
 						scale_y_continuous(labels = seq(0,1,.1), breaks=area2radius(seq(0,1,.1), width, angle, groups))+
 							ylab("prob")
 		}
-	}else{print("not yet implemented for pos=stack")
+	}else{print("double check graphical results for pos=stack")
 		d.temp <- data
 		angle <- 360 / length(unique(d.temp$region))
 		groups <- length(unique(d.temp$cond))
-		d.temp$radius <- area2radius(d.temp$prob, width, angle, groups)
+		d.temp$radius <- area2radius.stack(d.temp, width, angle)
 			p.return <- ggplot(d.temp, aes(x=factor(region), y=radius, fill=factor(cond)))+
 				geom_bar(width=width, stat="identity", position=pos, alpha=alpha, color=border.col) +
 					coord_polar(start=start) +

@@ -1,5 +1,6 @@
 export(aaroseplot)
 export(area2radius)
+export(area2radius.stack)
 export(barchart)
 export(multiplot)
 export(roseplot)
