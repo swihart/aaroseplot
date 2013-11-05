@@ -58,9 +58,9 @@ Frequent development tasks:
   consistent across 'cond'
 
 
-    prob.cond.region        
-       prob    cond region
-    1  0.10 Control     EE
+    prob.cond.region       \n 
+       prob    cond region \n
+    1  0.10 Control     EE \n
     2  0.08 Control     EN
     3  0.08 Control     ES
     4  0.20 Control     WN
