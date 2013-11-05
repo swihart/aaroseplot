@@ -123,12 +123,12 @@ prob.cond.region
     this context?  Let me know and thanks for writing.
 
 
-# Some alternative representations using height; not area or radius in polar coordinates.
+## Some alternative representations using height; not area or radius in polar coordinates.
 
 The plots below are not part of the package, but rather some graphs made in response to the FAQ section (above) pointing out that using height is a surefire way to not distort the data. Edit in your own example; there must be a way to graph these nicely; until then I'm inclined to use aaroseplot().
 
 
-## A pointrange presentation (with fake range):
+###A pointrange presentation (with fake range):
 ```r
 ## position="dodge" doesn't seem to work
 ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=prob-.02, ymax=prob+.02)) + 
@@ -137,7 +137,7 @@ coord_polar(start=pi/3)
 ```
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/pointrange.png "pointrange")
 
-## An errorbar presentation (with fake range):
+###An errorbar presentation (with fake range):
 ```r
 ## position="dodge" functions
 ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=prob-.02, ymax=prob+.02)) + 
@@ -150,7 +150,7 @@ coord_polar(start=pi/3)
 
 
 
-## An line presentation (range: 0 to prob):
+###An line presentation (range: 0 to prob):
 ```r
 ## need to include 0's
 d2 <- prob.cond.region          
@@ -167,7 +167,7 @@ No dodge available so alpha-blending is enabled to lessen the obscuring by overl
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/line.png "line")
 
 
-## An errorbar presentation (range: 0 to prob):
+###An errorbar presentation (range: 0 to prob):
 ```r
 ## position="dodge" does not function 
 ## unless width is nonzero on errobar
@@ -180,7 +180,7 @@ coord_polar(start=pi/3)
 
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar0prob.png "0prob")
 
-## An errorbar presentation (range: 0 to prob, no dodge):
+###An errorbar presentation (range: 0 to prob, no dodge):
 ```r
 ## position="dodge" does not function 
 ## unless width is nonzero on errobar
