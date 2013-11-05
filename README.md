@@ -45,6 +45,32 @@ Run in R:
     ## Dodged, Stacked, and Superimposed barchart, roseplot, area adjusted roseplot in same plot
     ## tip:  maximize window after render
     multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
+
+## Data Format:
+
+To use these functions, the data have to have a very specific format.  Three columns must be named "prob", "cond", "region".
+
+Frequent development tasks:
+
+* `prob` the probability of the `cond' occupying the `region'
+* `cond` the condition or group classifier
+* `region` a label corresponding to a sector/wedge.  Must be
+  consistent across 'cond'
+
+    > prob.cond.region        
+       prob    cond region
+    1  0.10 Control     EE
+    2  0.08 Control     EN
+    3  0.08 Control     ES
+    4  0.20 Control     WN
+    5  0.20 Control     WS
+    6  0.34 Control     WW
+    7  0.40 Exposed     EE
+    8  0.16 Exposed     EN
+    9  0.16 Exposed     ES
+    10 0.05 Exposed     WN
+    11 0.05 Exposed     WS
+    12 0.08 Exposed     WW
     
 ## Frequently Asked Questions:
 
