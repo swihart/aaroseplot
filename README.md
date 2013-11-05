@@ -119,7 +119,21 @@ prob.cond.region
     pointrange on a polar coordinate axis (below).  Is this an
     improvement in this context?  Let me know and thanks for writing.
 
-## A pointrange presentation (with made up range):
-
+## A pointrange presentation (with fake range):
+```r
+## position="dodge" doesn't seem to work
+ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=prob-.02, ymax=prob+.02)) + 
+geom_pointrange(position="dodge")+
+coord_polar(start=pi/3)
+```
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/pointrange.png "pointrange")
+
+## An errorbar presentation (with fake range):
+```r
+## position="dodge" functions
+ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=prob-.02, ymax=prob+.02)) + 
+geom_errorbar(position="dodge")+
+coord_polar(start=pi/3)
+```
+![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar.png "errorbar")
 
