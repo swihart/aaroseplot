@@ -137,3 +137,22 @@ coord_polar(start=pi/3)
 ```
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar.png "errorbar")
 
+
+## An errorbar presentation (with fake range):
+```r
+## position="dodge" functions
+ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=prob-.02, ymax=prob+.02)) + 
+geom_errorbar(position="dodge")+
+coord_polar(start=pi/3)
+```
+![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar.png "errorbar")
+
+## An linerange presentation (with fake range):
+```r
+## position="dodge" functions
+ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=0, ymax=prob)) + 
+geom_linerange(position="dodge")+
+coord_polar(start=pi/3)
+```
+![alt text](https://raw.github.com/swihart/aaroseplot/master/linerange.png "linerange")
+
