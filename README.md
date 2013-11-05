@@ -47,7 +47,7 @@ Run in R:
     ## tip:  maximize window after render
     multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
 
-![alt text](https://github.com/swihart/aaroseplot/blob/master/3x3.png "The Results")
+![alt text](https://raw.github.com/swihart/aaroseplot/master/3x3.png "The Results")
 
 ## Data Format:
 
