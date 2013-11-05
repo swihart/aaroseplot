@@ -105,3 +105,21 @@ prob.cond.region
     to you if you so wish.  We're all here to learn, to share, to
     source openly.
 
+    Q: Some say graphics should not have a value proportional to
+    radius OR area and just use height
+    (http://www.biostat.wisc.edu/~kbroman/presentations/more_on_graphs.pdf).
+    So is going from radius to area (roseplot to aaroseplot) really a
+    win?
+
+    A: The application involves growth from a central point in a 2-D
+    plane, which lends nicely to polar coordinates (in that East can
+    be on the right hand side and opposite of West, etc).  Karl Broman
+    also suggests not including zero, so if only height and not
+    including zero were displayed, one possibility would be a
+    pointrange on a polar coordinate axis (below).  Is this an
+    improvement in this context?  Let me know and thanks for writing.
+
+## A pointrange presentation (with made up range):
+
+![alt text](https://raw.github.com/swihart/aaroseplot/master/pointrange.png "pointrange")
+
