@@ -140,18 +140,6 @@ coord_polar(start=pi/3)
 
 
 
-## An errorbar presentation (range: 0 to prob):
-```r
-## position="dodge" does not function 
-## unless width is nonzero on errobar
-## this is why "dodge" doesn't work for line, linerange, pointrange
-ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=0, ymax=prob)) + 
-geom_errorbar(position="dodge", alpha=.5, width=.3)+
-coord_polar(start=pi/3)
-```
-
-
-![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar0prob.png "0prob")
 
 
 ## An line presentation (range: 0 to prob):
@@ -171,11 +159,15 @@ No dodge available so alpha-blending is enabled to lessen the obscuring by overl
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/line.png "line")
 
 
-## An pointrange presentation (range: 0 to prob):
+## An errorbar presentation (range: 0 to prob):
 ```r
+## position="dodge" does not function 
+## unless width is nonzero on errobar
+## this is why "dodge" doesn't work for line, linerange, pointrange
+ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=0, ymax=prob)) + 
+geom_errorbar(position="dodge", alpha=.5, width=.3)+
+coord_polar(start=pi/3)
 ```
 
-No dodge available so alpha-blending is enabled to lessen the obscuring by overlap.
 
-![alt text](https://raw.github.com/swihart/aaroseplot/master/line.png "line")
-
+![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar0prob.png "0prob")
