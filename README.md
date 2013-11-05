@@ -58,20 +58,25 @@ Frequent development tasks:
   consistent across 'cond'
 
 
-    prob.cond.region       \n 
-       prob    cond region \n
-    1  0.10 Control     EE \n
-    2  0.08 Control     EN
-    3  0.08 Control     ES
-    4  0.20 Control     WN
-    5  0.20 Control     WS
-    6  0.34 Control     WW
-    7  0.40 Exposed     EE
-    8  0.16 Exposed     EN
-    9  0.16 Exposed     ES
-    10 0.05 Exposed     WN
-    11 0.05 Exposed     WS
-    12 0.08 Exposed     WW
+```r
+    prob.cond.region        
+```
+
+```
+##       prob    cond region
+##    1  0.10 Control     EE
+##    2  0.08 Control     EN
+##    3  0.08 Control     ES
+##    4  0.20 Control     WN
+##    5  0.20 Control     WS
+##    6  0.34 Control     WW
+##    7  0.40 Exposed     EE
+##    8  0.16 Exposed     EN
+##    9  0.16 Exposed     ES
+##    10 0.05 Exposed     WN
+##    11 0.05 Exposed     WS
+##    12 0.08 Exposed     WW
+```
     
 ## Frequently Asked Questions:
 
