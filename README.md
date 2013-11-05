@@ -120,6 +120,8 @@ prob.cond.region
     improvement in this context?  Let me know and thanks for writing.
 
 
+# Some alternative representations using height; not area or radius in polar coordinates.
+
 ## A pointrange presentation (with fake range):
 ```r
 ## position="dodge" doesn't seem to work
