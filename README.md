@@ -60,9 +60,7 @@ Run in R:
 
 ## Data Format:
 
-To use these functions, the data have to have a very specific format.  Three columns must be named "prob", "cond", "region".
-
-Frequent development tasks:
+To use these functions, the data _frame_ has to have a very specific format.  Three columns must be named "prob", "cond", "region".
 
 * `prob` the probability of the `cond` occupying the `region`
 * `cond` the condition or group classifier
