@@ -91,12 +91,14 @@ prob.cond.region
 ## Frequently Asked Questions:
 
     Q:  Why not have the _area_ of the bar become the area of the wedge?
+    
     A:  Nice idea - I would first need to get my hands on the width of
     the bar to calculate the area - email me if you know how to get
     the width.
 
     Q: Isn't making canned wrappers of ggplot2 functions a
     bastardization of the whole idea of grammar of graphics?
+    
     A:  Geez -- listen, I'm a purist too and a big fan of ggplot2 as
     well.  I just wanted to make my first github repo after a very
     specific project I had involving adjusting the area of some
@@ -116,8 +118,9 @@ prob.cond.region
     be on the right hand side and opposite of West, etc).  Karl Broman
     also suggests not including zero, so if only height and not
     including zero were displayed, one possibility would be a
-    pointrange on a polar coordinate axis (below, along with errorbar and linerange [which includes zero]).  Is this an
-    improvement in this context?  Let me know and thanks for writing.
+    pointrange on a polar coordinate axis (below, along with errorbar
+    and linerange [which includes zero]).  Is this an improvement in
+    this context?  Let me know and thanks for writing.
 
 
 # Some alternative representations using height; not area or radius in polar coordinates.
