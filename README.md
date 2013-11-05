@@ -171,3 +171,16 @@ coord_polar(start=pi/3)
 
 
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar0prob.png "0prob")
+
+## An errorbar presentation (range: 0 to prob, no dodge):
+```r
+## position="dodge" does not function 
+## unless width is nonzero on errobar
+## this is why "dodge" doesn't work for line, linerange, pointrange
+ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=0, ymax=prob)) + 
+geom_errorbar(alpha=.5, width=.3)+
+coord_polar(start=pi/3)
+```
+The fact that the error bar width is dependent on radius doesn't seem attractive visually.
+
+![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar0probnododge.png "nododge")
