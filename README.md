@@ -23,6 +23,8 @@ area adjusted roseplot.
 
 ## Can I just see what you're talking about?
 
+![alt text](https://raw.github.com/swihart/aaroseplot/master/3x3.png "The Results")
+
 Run in R:
 
     #install.packages("devtools")
@@ -47,7 +49,7 @@ Run in R:
     ## tip:  maximize window after render
     multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
 
-![alt text](https://raw.github.com/swihart/aaroseplot/master/3x3.png "The Results")
+
 
 ## Data Format:
 
