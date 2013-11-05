@@ -23,7 +23,14 @@ area adjusted roseplot.
 
 ## Can I just see what you're talking about?
 
+<!---
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/3x3.png "The Results")
+-->
+
+![alt text](https://raw.github.com/swihart/aaroseplot/master/3x3top.png "top")
+![alt text](https://raw.github.com/swihart/aaroseplot/master/3x3mid.png "mid")
+![alt text](https://raw.github.com/swihart/aaroseplot/master/3x3bot.png "bot")
+
 
 Run in R:
 
