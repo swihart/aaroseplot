@@ -116,8 +116,9 @@ prob.cond.region
     be on the right hand side and opposite of West, etc).  Karl Broman
     also suggests not including zero, so if only height and not
     including zero were displayed, one possibility would be a
-    pointrange on a polar coordinate axis (below).  Is this an
+    pointrange on a polar coordinate axis (below, along with errorbar and linerange [which includes zero]).  Is this an
     improvement in this context?  Let me know and thanks for writing.
+
 
 ## A pointrange presentation (with fake range):
 ```r
@@ -138,21 +139,43 @@ coord_polar(start=pi/3)
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar.png "errorbar")
 
 
-## An errorbar presentation (with fake range):
-```r
-## position="dodge" functions
-ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=prob-.02, ymax=prob+.02)) + 
-geom_errorbar(position="dodge")+
-coord_polar(start=pi/3)
-```
-![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar.png "errorbar")
 
-## An linerange presentation (with fake range):
+## An errorbar presentation (range: 0 to prob):
 ```r
-## position="dodge" functions
+## position="dodge" does not function 
+## unless width is nonzero on errobar
+## this is why "dodge" doesn't work for line, linerange, pointrange
 ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=0, ymax=prob)) + 
-geom_linerange(position="dodge")+
+geom_errorbar(position="dodge", alpha=.5, width=.3)+
 coord_polar(start=pi/3)
 ```
-![alt text](https://raw.github.com/swihart/aaroseplot/master/linerange.png "linerange")
+
+
+![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar0prob.png "0prob")
+
+
+## An line presentation (range: 0 to prob):
+```r
+## need to include 0's
+d2 <- prob.cond.region          
+d2[,1] <- 0                     
+d3 <- rbind(prob.cond.region,d2)
+## position="dodge" does not function
+ggplot(d3, aes(x=factor(region), y=prob, colour=factor(cond), ymin=0, ymax=prob)) + 
+geom_line(position="dodge", alpha=.5)+
+coord_polar(start=pi/3)
+```
+
+No dodge available so alpha-blending is enabled to lessen the obscuring by overlap.
+
+![alt text](https://raw.github.com/swihart/aaroseplot/master/line.png "line")
+
+
+## An pointrange presentation (range: 0 to prob):
+```r
+```
+
+No dodge available so alpha-blending is enabled to lessen the obscuring by overlap.
+
+![alt text](https://raw.github.com/swihart/aaroseplot/master/line.png "line")
 
