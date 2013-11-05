@@ -52,10 +52,10 @@ To use these functions, the data have to have a very specific format.  Three col
 
 Frequent development tasks:
 
-* `prob` the probability of the `cond' occupying the `region'
+* `prob` the probability of the `cond` occupying the `region`
 * `cond` the condition or group classifier
 * `region` a label corresponding to a sector/wedge.  Must be
-  consistent across 'cond'
+  consistent across `cond`
 
 
 ```r
