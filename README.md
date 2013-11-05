@@ -125,6 +125,9 @@ prob.cond.region
 
 # Some alternative representations using height; not area or radius in polar coordinates.
 
+The plots below are not part of the package, but rather some graphs made in response to the FAQ section (above) pointing out that using height is a surefire way to not distort the data. Edit in your own example; there must be a way to graph these nicely; until then I'm inclined to use aaroseplot().
+
+
 ## A pointrange presentation (with fake range):
 ```r
 ## position="dodge" doesn't seem to work
