@@ -57,7 +57,8 @@ Frequent development tasks:
 * `region` a label corresponding to a sector/wedge.  Must be
   consistent across 'cond'
 
-    #> prob.cond.region        
+
+  prob.cond.region        
        prob    cond region
     1  0.10 Control     EE
     2  0.08 Control     EN
