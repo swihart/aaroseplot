@@ -25,10 +25,11 @@ area adjusted roseplot.
 
 Run in R:
 
-    install.packages("devtools")
+    #install.packages("devtools")
     library(devtools)
     install_github("ggplot2", "hadley")
     install_github("aaroseplot", "swihart")
+    library(aaroseplot)
     data(prob.cond.region)														  
     ## Dodged barchart, roseplot, area adjusted roseplot											  
     be <-   barchart(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Barchart (dodge)")						  
@@ -46,6 +47,8 @@ Run in R:
     ## tip:  maximize window after render
     multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
 
+
+
 ## Data Format:
 
 To use these functions, the data have to have a very specific format.  Three columns must be named "prob", "cond", "region".
@@ -59,7 +62,7 @@ Frequent development tasks:
 
 
 ```r
-    prob.cond.region        
+prob.cond.region        
 ```
 
 ```
