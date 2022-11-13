@@ -20,18 +20,18 @@
 #' data(prob.cond.region)
 #' ## Dodged barchart, roseplot, area adjusted roseplot
 #' be <-   barchart(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Barchart (dodge)")
-#' re <-   roseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Roseplot (dodge)")               + scale_fill_discrete(guide=FALSE)
-#' ae <- aaroseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (dodge)") + scale_fill_discrete(guide=FALSE)
+#' re <-   roseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Roseplot (dodge)")               + scale_fill_discrete(guide="none")
+#' ae <- aaroseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (dodge)") + scale_fill_discrete(guide="none")
 #' multiplot(be,re,ae, cols=2, rows=2)
 #' ## Stacked barchart, roseplot, area adjusted roseplot
 #' bk <-   barchart(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Barchart (stack)")
-#' rk <-   roseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Roseplot (stack)")               + scale_fill_discrete(guide=FALSE)
-#' ak <- aaroseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (stack)") + scale_fill_discrete(guide=FALSE)
+#' rk <-   roseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Roseplot (stack)")               + scale_fill_discrete(guide="none")
+#' ak <- aaroseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (stack)") + scale_fill_discrete(guide="none")
 #' multiplot(bk,rk,ak, cols=2, rows=2)
 #' ## Superimposed barchart, roseplot, area adjusted roseplot
 #' br <-   barchart(prob.cond.region, "super", rad.max=0.5) + ggtitle("Barchart (super)")
-#' rr <-   roseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Roseplot (super)")               + scale_fill_discrete(guide=FALSE)
-#' ar <- aaroseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (super)") + scale_fill_discrete(guide=FALSE)
+#' rr <-   roseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Roseplot (super)")               + scale_fill_discrete(guide="none")
+#' ar <- aaroseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (super)") + scale_fill_discrete(guide="none")
 #' multiplot(br,rr,ar, cols=2, rows=2)
 #' ## Dodged, Stacked, and Superimposed barchart, roseplot, area adjusted roseplot in same plot
 #' ## tip:  maximize window after render
@@ -43,16 +43,16 @@ barchart <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black", r
 		## really bad coding; hard coded at 10 levels of cond.  If there are fewer, just doesn't add anything...
 		p.return <-
 			ggplot(subset(data, cond==levels(factor(cond))[1]), aes(x=factor(region), y=prob, fill=factor(cond)))+
-			geom_bar(width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[2]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[3]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[4]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[5]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[6]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[7]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[8]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[9]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[10]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[2]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[3]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[4]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[5]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[6]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[7]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[8]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[9]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[10]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 					scale_y_continuous(labels = seq(0,1,.1),
 							   breaks=seq(0,1,.1),
 							   limits=c(0,rad.max))
@@ -71,25 +71,25 @@ roseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black", r
 	if(pos=="super"){
 		## really bad coding; hard coded at 10 levels of cond.  If there are fewer, just doesn't add anything...
 		p.return <- ggplot(subset(data, cond==levels(factor(cond))[1]), aes(x=factor(region), y=prob, fill=factor(cond)))+
-			geom_bar(width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[2]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[2]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[3]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[3]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[4]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[4]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[5]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[5]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[6]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[6]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[7]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[7]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[8]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[8]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[9]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[9]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(data, cond==levels(factor(cond))[10]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(data, cond==levels(factor(cond))[10]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start)  +
 					scale_y_continuous(labels = seq(0,1,.1),
 							   breaks=seq(0,1,.1),
@@ -116,25 +116,25 @@ aaroseplot <- function(data=d, pos=p, width=0.80, alpha=0.6, border.col="black",
 		if(pos == "super"){
 			## really bad coding; hard coded at 10 levels of cond.  If there are fewer, just doesn't add anything...
 			p.return <- ggplot(subset(d.temp, cond==levels(factor(cond))[1]), aes(x=factor(region), y=radius, fill=factor(cond)))+
-			geom_bar(width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[2]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[2]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[3]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[3]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[4]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[4]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[5]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[5]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[6]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[6]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[7]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[7]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[8]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[8]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[9]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[9]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
-			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[10]), width=width, stat="identity", position=NULL, alpha=alpha, color=border.col) +
+			geom_bar(data=subset(d.temp, cond==levels(factor(cond))[10]), width=width, stat="identity", position="identity", alpha=alpha, color=border.col) +
 				coord_polar(start=start) +
 			scale_y_continuous(labels = seq(0,1,.1),
 					   breaks=area2radius(seq(0,1,.1), width, angle, groups),

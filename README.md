@@ -34,27 +34,28 @@ area adjusted roseplot.
 
 Run in R:
 
-    #install.packages("devtools")
-    library(devtools)
-    install_github("ggplot2", "hadley")
-    install_github("aaroseplot", "swihart")
-    library(aaroseplot)
-    data(prob.cond.region)														  
-    ## Dodged barchart, roseplot, area adjusted roseplot											  
-    be <-   barchart(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Barchart (dodge)")						  
-    re <-   roseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Roseplot (dodge)")               + scale_fill_discrete(guide=FALSE)
-    ae <- aaroseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (dodge)") + scale_fill_discrete(guide=FALSE)
-    ## Stacked barchart, roseplot, area adjusted roseplot										  
-    bk <-   barchart(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Barchart (stack)")						  
-    rk <-   roseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Roseplot (stack)")               + scale_fill_discrete(guide=FALSE)
-    ak <- aaroseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (stack)") + scale_fill_discrete(guide=FALSE)
-    ## Superimposed barchart, roseplot, area adjusted roseplot										  
-    br <-   barchart(prob.cond.region, "super", rad.max=0.5) + ggtitle("Barchart (super)")						  
-    rr <-   roseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Roseplot (super)")               + scale_fill_discrete(guide=FALSE)
-    ar <- aaroseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (super)") + scale_fill_discrete(guide=FALSE)
-    ## Dodged, Stacked, and Superimposed barchart, roseplot, area adjusted roseplot in same plot
-    ## tip:  maximize window after render
-    multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
+  #install.packages("devtools")
+  library(devtools)
+  install_github("hadley/ggplot2")
+  install_github("swihart/aaroseplot")
+  library(aaroseplot)
+  data(prob.cond.region)														  
+  ## Dodged barchart, roseplot, area adjusted roseplot											  
+  be <-   barchart(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Barchart (dodge)")						  
+  re <-   roseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Roseplot (dodge)")               + scale_fill_discrete(guide="none")
+  ae <- aaroseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (dodge)") + scale_fill_discrete(guide="none")
+  ## Stacked barchart, roseplot, area adjusted roseplot										  
+  bk <-   barchart(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Barchart (stack)")						  
+  rk <-   roseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Roseplot (stack)")               + scale_fill_discrete(guide="none")
+  ak <- aaroseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (stack)") + scale_fill_discrete(guide="none")
+  ## Superimposed barchart, roseplot, area adjusted roseplot										  
+  br <-   barchart(prob.cond.region, "super", rad.max=0.5) + ggtitle("Barchart (super)")						  
+  rr <-   roseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Roseplot (super)")               + scale_fill_discrete(guide="none")
+  ar <- aaroseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (super)") + scale_fill_discrete(guide="none")
+  ## Dodged, Stacked, and Superimposed barchart, roseplot, area adjusted roseplot in same plot
+  ## tip:  maximize window after render
+  multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
+
 
 
 
@@ -128,7 +129,7 @@ prob.cond.region
 The plots below are not part of the package, but rather some graphs made in response to the FAQ section (above) pointing out that using height is a surefire way to not distort the data. Edit in your own example; there must be a way to graph these nicely; until then I'm inclined to use aaroseplot().
 
 
-###A pointrange presentation (with fake range):
+### A pointrange presentation (with fake range):
 ```r
 ## position="dodge" doesn't seem to work
 ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=prob-.02, ymax=prob+.02)) + 
@@ -137,7 +138,7 @@ coord_polar(start=pi/3)
 ```
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/pointrange.png "pointrange")
 
-###An errorbar presentation (with fake range):
+### An errorbar presentation (with fake range):
 ```r
 ## position="dodge" functions
 ggplot(prob.cond.region, aes(x=factor(region), y=prob, colour=factor(cond), ymin=prob-.02, ymax=prob+.02)) + 
@@ -150,7 +151,7 @@ coord_polar(start=pi/3)
 
 
 
-###An line presentation (range: 0 to prob):
+### An line presentation (range: 0 to prob):
 ```r
 ## need to include 0's
 d2 <- prob.cond.region          
@@ -167,7 +168,7 @@ No dodge available so alpha-blending is enabled to lessen the obscuring by overl
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/line.png "line")
 
 
-###An errorbar presentation (range: 0 to prob):
+### An errorbar presentation (range: 0 to prob):
 ```r
 ## position="dodge" does not function 
 ## unless width is nonzero on errobar
@@ -180,7 +181,7 @@ coord_polar(start=pi/3)
 
 ![alt text](https://raw.github.com/swihart/aaroseplot/master/errorbar0prob.png "0prob")
 
-###An errorbar presentation (range: 0 to prob, no dodge):
+### An errorbar presentation (range: 0 to prob, no dodge):
 ```r
 ## position="dodge" does not function 
 ## unless width is nonzero on errobar

@@ -1,6 +1,6 @@
 Package: aaroseplot
 Title: Area Adjusted Roseplots via ggplot2
-Version: 0.1
+Version: 0.2
 Author: Bruce Swihart <bruce.swihart@gmail.com>
 Maintainer: Bruce Swihart <bruce.swihart@gmail.com>
 Description: In ggplot2's documentation, the roseplot is derived by taking a
