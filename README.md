@@ -34,28 +34,29 @@ area adjusted roseplot.
 
 Run in R:
 
-  #install.packages("devtools")
-  library(devtools)
-  install_github("hadley/ggplot2")
-  install_github("swihart/aaroseplot")
-  library(aaroseplot)
-  data(prob.cond.region)														  
-  ## Dodged barchart, roseplot, area adjusted roseplot											  
-  be <-   barchart(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Barchart (dodge)")						  
-  re <-   roseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Roseplot (dodge)")               + scale_fill_discrete(guide="none")
-  ae <- aaroseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (dodge)") + scale_fill_discrete(guide="none")
-  ## Stacked barchart, roseplot, area adjusted roseplot										  
-  bk <-   barchart(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Barchart (stack)")						  
-  rk <-   roseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Roseplot (stack)")               + scale_fill_discrete(guide="none")
-  ak <- aaroseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (stack)") + scale_fill_discrete(guide="none")
-  ## Superimposed barchart, roseplot, area adjusted roseplot										  
-  br <-   barchart(prob.cond.region, "super", rad.max=0.5) + ggtitle("Barchart (super)")						  
-  rr <-   roseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Roseplot (super)")               + scale_fill_discrete(guide="none")
-  ar <- aaroseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (super)") + scale_fill_discrete(guide="none")
-  ## Dodged, Stacked, and Superimposed barchart, roseplot, area adjusted roseplot in same plot
-  ## tip:  maximize window after render
-  multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
-
+```r
+#install.packages("devtools")
+library(devtools)
+install_github("hadley/ggplot2")
+install_github("swihart/aaroseplot")
+library(aaroseplot)
+data(prob.cond.region)														  
+## Dodged barchart, roseplot, area adjusted roseplot											  
+be <-   barchart(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Barchart (dodge)")						  
+re <-   roseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Roseplot (dodge)")               + scale_fill_discrete(guide="none")
+ae <- aaroseplot(prob.cond.region, "dodge", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (dodge)") + scale_fill_discrete(guide="none")
+## Stacked barchart, roseplot, area adjusted roseplot										  
+bk <-   barchart(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Barchart (stack)")						  
+rk <-   roseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Roseplot (stack)")               + scale_fill_discrete(guide="none")
+ak <- aaroseplot(prob.cond.region, "stack", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (stack)") + scale_fill_discrete(guide="none")
+## Superimposed barchart, roseplot, area adjusted roseplot										  
+br <-   barchart(prob.cond.region, "super", rad.max=0.5) + ggtitle("Barchart (super)")						  
+rr <-   roseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Roseplot (super)")               + scale_fill_discrete(guide="none")
+ar <- aaroseplot(prob.cond.region, "super", rad.max=0.5) + ggtitle("Area Adjusted Roseplot (super)") + scale_fill_discrete(guide="none")
+## Dodged, Stacked, and Superimposed barchart, roseplot, area adjusted roseplot in same plot
+## tip:  maximize window after render
+multiplot(be,bk,br,re,rk,rr,ae,ak,ar, cols=3)
+```
 
 
 
